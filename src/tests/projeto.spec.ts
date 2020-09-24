@@ -1,5 +1,8 @@
 import Projeto from "@models/Projeto.model";
-import ListaProjeto from "@repositories/Projeto.repository"
+import ProjetoRepository from "@repositories/Projeto.repository";
+import ProjetoService from "@services/Projeto.service";
+import { projetos } from "../db/db.local";
+
 
 describe('teste relacionado ao projeto',()=>{
 
@@ -11,9 +14,12 @@ describe('teste relacionado ao projeto',()=>{
     })
 
     it('adicionar um projeto a lista', () => {
-        const projeto = new Projeto('nome')
-        ListaProjeto.push(projeto)
-        expect(ListaProjeto.length).toEqual(1)
-
+        const projetoService = new ProjetoService()
+        projetoService.adicionarProjeto('projeto')
+        
+        expect(projetos.length).toEqual(1)
+        projetoService.adicionarProjeto('projeto2')
+        expect(projetos.length).toEqual(2)
+        
     })
 })
