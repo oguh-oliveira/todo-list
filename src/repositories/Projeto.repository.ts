@@ -1,5 +1,11 @@
-import Projeto from "@models/Projeto.model"
+import Projeto from "@models/Projeto.model";
+import {projetos} from "../db/db.local"
 
-const projetos : Projeto [] = []
+export default class ProjetoRepository {
 
-export default projetos
+    inserirProjeto(projeto:Projeto){
+        projetos.push(projeto)
+    }
+
+    
+}
