@@ -1,10 +1,10 @@
-import {criarProjeto } from "@services/Projeto.services";
+import Projeto from "@models/Projeto.model";
 
 describe('teste relacionado ao projeto',()=>{
     it('criar um projeto',() => {
-        const projeto = criarProjeto('nome')
-        expect(projeto.nome).toBe('nome')
-        expect(projeto.id).not.toBeNull()
+        const projeto = new Projeto('nome')
+        expect(projeto.getNome()).toBe('nome')
+        expect(projeto.getId()).not.toBeNull()
 
     })
 })
